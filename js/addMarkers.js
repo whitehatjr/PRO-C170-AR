@@ -29,17 +29,20 @@ AFRAME.registerComponent("createmarkers", {
       mainPlane.setAttribute("id", `main-plane-${toy.id}`);
       mainPlane.setAttribute("position", { x: 0, y: 0, z: 0 });
       mainPlane.setAttribute("rotation", { x: -90, y: 0, z: 0 });
-      mainPlane.setAttribute("width", 1.7);
-      mainPlane.setAttribute("height", 1.5);
+      mainPlane.setAttribute("material", {
+        color: "#ffd880"
+      });
+      mainPlane.setAttribute("width", 2.3);
+      mainPlane.setAttribute("height", 2.5);
       marker.appendChild(mainPlane);
 
       // toy title background plane
       var titlePlane = document.createElement("a-plane");
       titlePlane.setAttribute("id", `title-plane-${toy.id}`);
-      titlePlane.setAttribute("position", { x: 0, y: 0.89, z: 0.02 });
+      titlePlane.setAttribute("position", { x: 0, y: 1.1, z: 0.1 });
       titlePlane.setAttribute("rotation", { x: 0, y: 0, z: 0 });
-      titlePlane.setAttribute("width", 1.69);
-      titlePlane.setAttribute("height", 0.3);
+      titlePlane.setAttribute("width", 2.31);
+      titlePlane.setAttribute("height", 0.4);
       titlePlane.setAttribute("material", { color: "#F0C30F" });
       mainPlane.appendChild(titlePlane);
 
@@ -49,11 +52,11 @@ AFRAME.registerComponent("createmarkers", {
       toyTitle.setAttribute("position", { x: 0, y: 0, z: 0.1 });
       toyTitle.setAttribute("rotation", { x: 0, y: 0, z: 0 });
       toyTitle.setAttribute("text", {
-        font: "monoid",
-        color: "black",
-        width: 1.8,
-        height: 1,
-        align: "center",
+        font: "aileronsemibold",
+        color: "#290149",
+        width: 4.5,
+        height: 3,
+        align: "left",
         value: toy.toy_name.toUpperCase()
       });
       titlePlane.appendChild(toyTitle);
@@ -61,16 +64,34 @@ AFRAME.registerComponent("createmarkers", {
       // description List
       var description = document.createElement("a-entity");
       description.setAttribute("id", `description-${toy.id}`);
-      description.setAttribute("position", { x: 0.1, y: 0, z: 0.1 });
+      description.setAttribute("position", { x: 0.04, y: 0, z: 0.1 });
       description.setAttribute("rotation", { x: 0, y: 0, z: 0 });
       description.setAttribute("text", {
-        font: "monoid",
-        color: "black",
-        width: 1.8,
+        font: "dejavu",
+        color: "#6b011f",
+        width: 2,
+        height: 5,
+        letterSpacing: 2,
+        lineHeight: 50,
         align: "left",
-        value: `${toy.description.split("-").join("\n\n")}`
+        value: `${toy.description}`
       });
       mainPlane.appendChild(description);
+
+      var age = document.createElement("a-entity");
+      age.setAttribute("id", `age-${toy.id}`);
+      age.setAttribute("position", { x: -0.75, y: -0.8, z: 0.1 });
+      age.setAttribute("rotation", { x: 0, y: 0, z: 0 });
+      age.setAttribute("text", {
+        font: "aileronsemibold",
+        color: "#290149",
+        width: 2,
+        height: 5,
+        align: "center",
+        value: `AGE : ${toy.age_group}`
+      });
+
+      mainPlane.appendChild(age);
     });
   },
   getAllToys: async function() {
