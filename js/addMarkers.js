@@ -43,13 +43,13 @@ AFRAME.registerComponent("createmarkers", {
       titlePlane.setAttribute("rotation", { x: 0, y: 0, z: 0 });
       titlePlane.setAttribute("width", 2.31);
       titlePlane.setAttribute("height", 0.4);
-      titlePlane.setAttribute("material", { color: "#F0C30F" });
+      titlePlane.setAttribute("material", { color: "#f14668" });
       mainPlane.appendChild(titlePlane);
 
       // Toy title
       var toyTitle = document.createElement("a-entity");
       toyTitle.setAttribute("id", `toy-title-${toy.id}`);
-      toyTitle.setAttribute("position", { x: 0, y: 0, z: 0.1 });
+      toyTitle.setAttribute("position", { x: 1.3, y: 0, z: 0.1 });
       toyTitle.setAttribute("rotation", { x: 0, y: 0, z: 0 });
       toyTitle.setAttribute("text", {
         font: "aileronsemibold",
